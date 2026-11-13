@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#061512">
+  <title>USDT EARN PRO</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark">₮</div>
+      <div class="brand-copy"><strong>USDT <span>EARN PRO</span></strong><small>Earn • Complete • Grow</small></div>
+      <div class="network-pill"><i></i> BEP-20</div>
+    </header>
+
+    <section class="profile-strip">
+      <div class="avatar" id="avatar">U</div>
+      <div class="profile-copy"><strong id="userName">Guest Explorer</strong><small><b></b> Connected to Telegram</small></div>
+      <button class="sound-btn" id="soundBtn" aria-label="Toggle sound">♫</button>
+    </section>
+
+    <main>
+      <section class="page active" id="page-home">
+        <div class="hero-card">
+          <div class="hero-head"><span>₮ &nbsp; AVAILABLE USDT BALANCE</span><span class="rate">1 USDT ≈ $1.00</span></div>
+          <div class="balance"><strong id="balance">0.000</strong><em>USDT</em></div>
+          <div class="value-row"><span>≈ Real USD Value</span><strong id="usdValue">$0.00</strong><span class="chain">▣ BNB Smart Chain</span></div>
+          <div class="button-row">
+            <button class="primary-btn" data-go="wallet">↗ &nbsp; Withdraw</button>
+            <button class="secondary-btn" data-go="wallet">◷ &nbsp; History</button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon token">₮</div><strong id="statBalance">0.000</strong><small>Balance</small></article>
+          <article class="stat-card"><div class="stat-icon crown">♛</div><strong id="refCount">0</strong><small>Referrals</small></article>
+          <article class="stat-card"><div class="stat-icon shield">✓</div><strong id="missionCount">0</strong><small>Missions done</small></article>
+        </div>
+
+        <article class="promo-card ad-card">
+          <div><label>🔥 &nbsp; WATCH & EARN</label><h3>Watch Ad · <span>+0.000 USDT</span></h3><p>Reward is added after a verified ad completion.</p></div>
+          <button class="primary-btn small" id="watchAd">▶ &nbsp; Watch Ad</button>
+        </article>
+
+        <article class="promo-card mission-promo">
+          <div class="coin-art">₮</div>
+          <h2>Explore & Earn USDT</h2>
+          <p>Complete verified missions and collect rewards. Your progress is tracked transparently.</p>
+          <button class="primary-btn" data-go="missions">Start Missions &nbsp; →</button>
+        </article>
+
+        <article class="quick-card">
+          <label>QUICK NAVIGATION</label>
+          <button class="quick-link" data-go="missions"><span class="quick-icon cyan">✓</span><span><b>Verified Missions</b><small>Complete partner tasks & earn rewards</small></span><strong>›</strong></button>
+          <button class="quick-link" data-go="invite"><span class="quick-icon purple">♙</span><span><b>Affiliate Program</b><small>Invite friends and track bonuses</small></span><strong>›</strong></button>
+        </article>
+        <p class="demo-note">Demo mode: displayed rewards are simulated and have no cash value.</p>
+      </section>
+
+      <section class="page" id="page-missions">
+        <div class="section-heading"><div><h1>Verified Missions</h1><p>Complete tasks to unlock rewards</p></div><span class="progress-pill" id="missionProgress">0/4 Done</span></div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <article class="list-card">
+          <label>AVAILABLE MISSIONS</label>
+          <div id="missionList"></div>
+        </article>
+      </section>
+
+      <section class="page" id="page-invite">
+        <article class="invite-card">
+          <h1>Invite & Earn 🎁</h1>
+          <p>Grow the community with your personal Mini App link.</p>
+          <div class="bonus-box"><span class="tag">⚡ REFERRAL BONUS</span><h3>Earn <b>+0.050 USDT</b> per verified friend</h3><p>Referral rewards are credited only after the invited user completes the required verified tasks. Demo mode does not transfer funds.</p></div>
+          <div class="copy-field"><span id="refLink">Your Telegram invite link appears here</span><button id="copyLink">▢</button></div>
+          <button class="primary-btn full" id="shareLink">➤ &nbsp; Share Invite Link on Telegram</button>
+        </article>
+        <div class="stats-grid invite-stats">
+          <article class="stat-card"><strong id="joinedCount">0</strong><small>TOTAL JOINED</small></article>
+          <article class="stat-card"><strong class="gold-text">0</strong><small>PROCESSING</small></article>
+          <article class="stat-card"><strong class="green-text" id="refEarned">0.000</strong><small>EARNED USDT</small></article>
+        </div>
+        <article class="list-card empty-state"><label>REFERRED NETWORK</label><div class="empty-icon">♧</div><h3>No referred friends yet</h3><p>Share your invite link to grow your network.</p></article>
+      </section>
+
+      <section class="page" id="page-wallet">
+        <article class="wallet-hero">
+          <small>ESTIMATED PORTFOLIO VALUE</small><strong id="walletUsd">$0.00</strong><span class="wallet-token">₮ &nbsp; <b id="walletBalance">0.000 USDT</b></span>
+          <div class="button-row"><button class="secondary-btn" id="openWithdraw">↗ &nbsp; Withdraw</button><button class="secondary-btn" id="showHistory">◷ &nbsp; Activity Log</button></div>
+        </article>
+        <article class="list-card">
+          <div class="list-title"><label>WITHDRAWAL REQUESTS</label><button class="text-btn" id="newCashout">+ New Cashout</button></div>
+          <div id="withdrawList" class="empty-state"><div class="empty-icon">◷</div><h3>No withdrawals recorded</h3><p>Your withdrawal requests will appear here.</p></div>
+        </article>
+        <article class="list-card asset-card"><label>ASSETS</label><div class="asset-row"><div class="stat-icon token">₮</div><div><b>USDT (BEP-20)</b><small>Tether · BNB Smart Chain</small></div><strong>$0.00<small>0.000 USDT</small></strong></div></article>
+        <article class="list-card"><label>TRANSPARENCY</label><div class="quick-link"><span class="quick-icon cyan">⬡</span><span><b>Payout information</b><small>Real payouts require a funded wallet and verified transactions.</small></span></div></article>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item selected" data-tab="home"><span>⌂</span><small>Home</small></button>
+      <button class="nav-item" data-tab="missions"><span>✓</span><small>Missions</small></button>
+      <button class="nav-item" data-tab="invite"><span>♧</span><small>Invite</small></button>
+      <button class="nav-item" data-tab="wallet"><span>▣</span><small>Wallet</small></button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop" id="withdrawModal">
+    <div class="modal">
+      <button class="close-modal" data-close>×</button>
+      <h2>₮ &nbsp; Withdraw USDT</h2>
+      <p class="muted">BEP-20 · BNB Smart Chain</p>
+      <label for="walletAddress">BEP-20 wallet address</label>
+      <input id="walletAddress" placeholder="0x... (your BNB Smart Chain address)" autocomplete="off">
+      <label for="withdrawAmount">Amount (USDT)</label>
+      <input id="withdrawAmount" type="number" min="0" step="0.001" placeholder="0.000">
+      <p class="warning">⚠️ Only use a BEP-20 address. Never share your seed phrase or private key.</p>
+      <button class="primary-btn full" id="submitWithdraw">Submit withdrawal request</button>
+      <small class="muted">Demo only: this records a local request; it does not send cryptocurrency.</small>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
